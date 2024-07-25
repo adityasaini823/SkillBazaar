@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 import {Button,Card,TextField} from '@mui/material';
 // import { dark } from "@mui/material/styles/createPalette";
@@ -6,8 +7,13 @@ import {Button,Card,TextField} from '@mui/material';
 
 /// File is incomplete. You need to add input boxes to take input for users to register.
 function Register() {
+    const navigate = useNavigate();
+
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const handleLogin = () => {
+        navigate("/login");
+    };
 
 
     return (
@@ -32,7 +38,7 @@ function Register() {
               }  }>Create Account</Button>
             </Card>
         <br/>
-        Already a user? <a href="/login">Login</a>
+        Already a user?<Button onClick={handleLogin}>Login</Button>
     </div>
     </div>)
 }
